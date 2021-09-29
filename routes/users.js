@@ -1,18 +1,8 @@
-import express from 'express';
-const router = express.Router();
-const users = [
-    {
-        firstName: "Lucas",
-        lastName: "Luque",
-        age: 18
-    }
-]
-router.get('/', (req, res) => {
-    res.send(users);
-});
-router.post('/', ((req, res) => {
-    const user = req.body; //el req.body es lo que escribimos desde el post en postman
-    users.push(user);
-    res.send(`User with username ${user.firstName} added to the database!`);
-})); //Para crear usuarios
-export default router;
+const {Router} = require('express');
+const userController = require('../controllers/userController');
+const router = Router();
+
+router.get('/', userController.getUser);
+router.post('/', userController.postUser);
+
+module.exports = router;

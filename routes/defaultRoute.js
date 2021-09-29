@@ -1,6 +1,11 @@
-import express from 'express';
-const router = express.Router();
+const {Router} = require('express');
+const router = Router();
+const controller = require('../controllers/userController');
+
 router.get('/', (req, res) => {
     res.send('Welcome to the Homepage!');
 });
-export default router;
+
+
+
+module.exports = router;

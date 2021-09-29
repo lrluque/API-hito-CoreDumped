@@ -3,7 +3,7 @@ const mongoose = require("mongoose"),
 
 const userModel = new Schema({
     firstName: {type: String},
-    lastName: {type: Number},
+    lastName: {type: String},
     age: {type: Number},
 });
 module.exports = mongoose.model("User", userModel);
