@@ -7,8 +7,6 @@ import defaultRoute from './routes/defaultRoute.js';
 const app = express(); //inicializamos express y lo declaramos función "()"
 const PORT = 3000;
 
-
-
 app.use(bodyParser.json());
 app.use('/', defaultRoute);
 app.use('/users', users);
