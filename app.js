@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const users = require('./routes/users.js');
 const defaultRoute = require('./routes/defaultRoute.js');
+const mongoose = require("mongoose");
 
 
 
@@ -15,5 +16,11 @@ app.use('/users', users);
 
 const userController = require("./controllers/userController");
 
-app.listen(PORT, () => console.log(`Server running on port: http://localhost:${PORT}/`));
-
+//Conectarse a la DB de mongo
+mongoose.connect("mongodb://localhost/coredumped", function (err, res) {
+    if (err) {
+        console.log("ERROR: connecting to Database. " + err);
+    }
+    //Iniciar servidor express
+    app.listen(PORT, () => console.log(`Server running on port: http://localhost:${PORT}/`));
+});
